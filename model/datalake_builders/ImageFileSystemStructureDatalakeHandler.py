@@ -1,14 +1,20 @@
-from abc import ABC
+import os
 
-from model.DatalakeHandler import DatalakeHandler
+from model.DatalakeHandler import SourceHandler
 
 
-class ImageFileSystemStructureDatalakeHandler(DatalakeHandler, ABC):
-    def __init__(self) -> None:
-        super().__init__()
+class ImageFileSystemStructureDatalakeHandler(SourceHandler):
+    def __init__(self, datalake_root: str, writer):
+        self.datalake_root = datalake_root
+        self.writer = writer
 
     def build_from(self, directory):
-        pass
+        self._create_directory(self.datalake_root)
+        self._create_directory(self.datalake_root + "/metadata")
+        self.add_from(directory)
 
     def add_from(self, directory):
         pass
+
+    def _create_directory(self, path):
+        os.makedirs(path)

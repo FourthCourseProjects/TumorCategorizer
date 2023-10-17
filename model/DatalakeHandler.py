@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class DatalakeHandler(ABC):
+class SourceHandler(ABC):
     @abstractmethod
     def build_from(self, directory):
         pass

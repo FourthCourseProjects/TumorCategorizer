@@ -24,6 +24,4 @@ datalake_handler = ImageFileSystemStructureDatalakeHandler(datalake,
 # datalake_handler.add_from("sources/DatasetTumoresCerebrales/test")
 # datalake_handler.add_from("sources/DatasetTumoresCerebrales/training")
 
-
-
 print(len(datalake))

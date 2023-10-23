@@ -1,18 +1,18 @@
 from model.Datalake import Datalake
-from model.datalake_builders.ImageFileSystemStructureDatalakeHandler import ImageFileSystemStructureDatalakeHandler
+from model.datalake_builders.ImageFileSystemStructureDatalakeBuilder import ImageFileSystemStructureDatalakeBuilder
 from model.datalake_ingestors.ImageEventIngestor import ImageEventIngestor
 from model.event_serializers.data.ImageDataSerializer import ImageDataSerializer
 from model.event_serializers.metadata.JsonMetadataSerializer import JsonMetadataSerializer
-from model.readers.data.ImageDataReader import ImageDataReader
+from model.readers.data.ImageEventReader import ImageEventReader
 from model.stores.EventStore import EventStore
 from model.writers.EventWriter import EventWriter
 from model.writers.data.ImageDataWriter import ImageDataWriter
 from model.writers.metadata.MetadataWriter import MetadataWriter
 
 datalake = Datalake()
-datalake_handler = ImageFileSystemStructureDatalakeHandler(datalake,
+datalake_handler = ImageFileSystemStructureDatalakeBuilder(datalake,
                                                            ImageEventIngestor(
-                                                               ImageDataReader(),
+                                                               ImageEventReader(),
                                                                EventStore(
                                                                    EventWriter(
                                                                        ImageDataWriter(),
@@ -21,7 +21,6 @@ datalake_handler = ImageFileSystemStructureDatalakeHandler(datalake,
                                                                    ImageDataSerializer()))
                                                            )
 
-# datalake_handler.add_from("sources/DatasetTumoresCerebrales/test")
-# datalake_handler.add_from("sources/DatasetTumoresCerebrales/training")
+datalake_handler.add_from("sources/DatasetTumoresCerebrales/test")
+datalake_handler.add_from("sources/DatasetTumoresCerebrales/training")
 
-print(len(datalake))

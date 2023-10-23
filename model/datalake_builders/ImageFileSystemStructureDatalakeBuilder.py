@@ -1,11 +1,11 @@
 import os
 from abc import ABC
 
-from model.DatalakeHandler import SourceHandler
+from model.DatalakeBuilder import DatalakeBuilder
 from model.EventIngestor import EventIngestor
 
 
-class ImageFileSystemStructureDatalakeHandler(SourceHandler, ABC):
+class ImageFileSystemStructureDatalakeBuilder(DatalakeBuilder, ABC):
     def __init__(self, datalake, image_ingestor: EventIngestor):
         self.datalake = datalake
         self.image_ingestor = image_ingestor

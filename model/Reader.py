@@ -2,6 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class Reader(ABC):
-    @abstractmethod
     def read(self, path):
-        pass
+        with open(path) as f:
+            return f.read()

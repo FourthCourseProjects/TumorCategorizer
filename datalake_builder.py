@@ -3,7 +3,7 @@ from model.datalake_builders.ImageFileSystemStructureDatalakeBuilder import Imag
 from model.datalake_ingestors.ImageEventIngestor import ImageEventIngestor
 from model.event_serializers.data.ImageDataSerializer import ImageDataSerializer
 from model.event_serializers.metadata.JsonMetadataSerializer import JsonMetadataSerializer
-from model.readers.data.ImageEventReader import ImageEventReader
+from model.readers.ImageEventReader import ImageEventReader
 from model.stores.EventStore import EventStore
 from model.writers.EventWriter import EventWriter
 from model.writers.data.ImageDataWriter import ImageDataWriter

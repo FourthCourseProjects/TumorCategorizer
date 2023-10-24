@@ -13,3 +13,6 @@ class Dataframe(ABC):
     def column_names(self):
         pass
 
+    @abstractmethod
+    def to_dataset(self, input_columns, output_columns, batch_size):
+        pass

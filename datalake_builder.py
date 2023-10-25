@@ -21,6 +21,5 @@ datalake_handler = ImageFileSystemStructureDatalakeBuilder(datalake,
                                                                    ImageDataSerializer()))
                                                            )
 
-datalake_handler.add_from("sources/DatasetTumoresCerebrales/test")
 datalake_handler.add_from("sources/DatasetTumoresCerebrales/training")
 
